@@ -23,3 +23,22 @@
 (println "Removendo o elemento da chave desassociando" (dissoc estoque :mochila))
 
 
+(def pedido {:mochila {:quantidade 2, :preco 80}
+             :camiseta {:quantidade 3, :preco 40}})
+(println "\n\n\n\n")
+(println pedido)
+(def pedido (assoc pedido :chaveiro{:quantidade 1, :preco 10}))
+(println pedido)
+(println "Mapa como função, sem problemas, quase não é usada" (pedido :mochila))
+(println "forma mais incomum" (get pedido :mochila))
+(println "forma comumente usada"(:mochila pedido))
+(println (:quantidade (:mochila pedido)))
+(println (update-in pedido [:mochila :quantidade] inc))
+
+;THREADING, GROSSEIRAMENTE UMA COSTURA
+(println "Encadeamento, forma mais usada" (-> pedido
+             :mochila
+             :quantidade))
+
+
+
